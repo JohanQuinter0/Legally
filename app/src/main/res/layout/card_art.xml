@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cardrounded">
+
+    <LinearLayout
+        android:id="@+id/cardArtContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/nombre_articulo_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingVertical="10dp"
+            android:text="Nombre del artículo"
+            android:textAlignment="center"
+            android:textColor="@color/principal"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:id="@+id/imgartregistrado"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingHorizontal="5dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/tipoartcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="20dp"
+            android:text="Tipo: ..."
+            android:textColor="@color/principal"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/artserialcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="5dp"
+            android:text="S/N: XXXXX"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/artdetallescard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="5dp"
+            android:text="Detalles:\n..."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/artregistradocard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="5dp"
+            android:text="Marca: ..."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/artestadocard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="5dp"
+            android:text="Estado: ..."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/artfechacard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="5dp"
+            android:text="Fecha registro: ..."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtUbicacionPerdida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="5dp"
+            android:text="Ubicación de pérdida aproximada: ..."
+            android:textSize="18sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/arteliminarcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="70dp"
+            android:paddingVertical="10dp"
+            android:text="Eliminar artículo"
+            android:textAlignment="center"
+            android:textColor="@color/principal"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnReportarArt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:backgroundTint="@color/principal"
+            android:fontFamily="@font/poppins"
+            android:paddingVertical="15dp"
+            android:text="Reportar como perdido/robado?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="8dp" />
+
+        <Button
+            android:id="@+id/btnContactarPolicia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="Contacta a la policía"
+            android:backgroundTint="@color/red"
+            android:fontFamily="@font/poppins"
+            android:paddingVertical="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:textSize="18sp"
+            app:cornerRadius="10dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnContactarPropietario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="Contacta al propietario"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:backgroundTint="@color/principal"
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:paddingVertical="15dp"
+            app:cornerRadius="10dp"/>
+
+        <TextView
+            android:id="@+id/artescogerubicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="18dp"
+            android:visibility="gone"
+            android:paddingVertical="10dp"
+            android:text="Escoge una ubicación aproximada en la que perdiste tu artículo"
+            android:textAlignment="center"
+            android:textColor="@color/principal"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnEncontrasteArt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:visibility="gone"
+            android:layout_marginRight="15dp"
+            android:backgroundTint="@color/principal"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:paddingVertical="15dp"
+            android:text="Encontraste tu artículo?"
+            android:textSize="18sp"
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+</LinearLayout>

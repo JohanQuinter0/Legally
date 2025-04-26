@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Legally</string>
+
+    <string name="botonregresar">Botón para regresar</string>
+
+    <string-array name="tipo_documento">
+        <item>Tipo de Documento</item>
+        <item>Cédula de Ciudadanía (CC)</item>
+        <item>Tarjeta de Identidad (TI)</item>
+        <item>Cédula de Extranjería (CE)</item>
+        <item>Pasaporte (PA)</item>
+        <item>Número de Identificación Tributaria (NIT)</item>
+    </string-array>
+
+    <string-array name="tipo_articulo">
+        <item>Tipo de artículo</item>
+        <item>Vehículo</item>
+        <item>Electrodoméstico</item>
+        <item>Tecnología</item>
+        <item>Otros</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inicio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Inicio">
+
+    <FrameLayout
+        android:id="@+id/mapa"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="74dp"
+        android:background="@drawable/rounded_button_background"
+        android:clipToOutline="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/verificar"
+        app:layout_constraintTop_toBottomOf="@+id/misarts">
+
+        <Button
+            android:id="@+id/btnmapa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/light_gray_fix"
+            android:fontFamily="@font/poppins"
+            android:gravity="start|top"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="25dp"
+            android:paddingEnd="50dp"
+            android:text="Ver mapa."
+            android:textAlignment="gravity"
+            android:textColor="@color/almost_black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:cornerRadius="32dp" />
+
+        <ImageView
+            android:id="@+id/iconomapa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:scaleY="1.23"
+            app:srcCompat="@drawable/mapa" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/verificar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mapa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrar">
+
+        <Button
+            android:id="@+id/btnverificar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/light_gray_fix"
+            android:fontFamily="@font/poppins"
+            android:gravity="start|top"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="25dp"
+            android:paddingEnd="49dp"
+            android:text="Verifica un artículo."
+            android:textAlignment="gravity"
+            android:textColor="@color/almost_black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:cornerRadius="32dp" />
+
+        <ImageView
+            android:id="@+id/iconoverificar"
+            android:layout_width="150dp"
+            android:layout_height="135dp"
+            android:layout_gravity="start|bottom"
+            app:srcCompat="@drawable/triangulo" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/misarts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/verificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/registrar"
+        app:layout_constraintTop_toBottomOf="@+id/iniciotxt">
+
+        <Button
+            android:id="@+id/btnmisarts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/light_gray_fix"
+            android:fontFamily="@font/poppins"
+            android:gravity="start|top"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="25dp"
+            android:paddingEnd="40dp"
+            android:text="Mis artículos."
+            android:textAlignment="gravity"
+            android:textColor="@color/almost_black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:cornerRadius="32dp" />
+
+        <ImageView
+            android:id="@+id/iconomisarts"
+            android:layout_width="150dp"
+            android:layout_height="163dp"
+            android:layout_gravity="start|bottom"
+            app:srcCompat="@drawable/circulo" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/LegallyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="94dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Legally"
+        android:textColor="@color/principal"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/iniciotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Qué quieres hacer hoy?"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LegallyTitle" />
+
+    <ImageView
+        android:id="@+id/btnnotificacion"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/campana" />
+
+    <ImageView
+        android:id="@+id/btnuser"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/userimg" />
+
+    <FrameLayout
+        android:id="@+id/registrar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/verificar"
+        app:layout_constraintEnd_toStartOf="@+id/misarts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iniciotxt">
+
+        <Button
+            android:id="@+id/btnregistrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/light_gray_fix"
+            android:fontFamily="@font/poppins"
+            android:gravity="start|top"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="25dp"
+            android:paddingEnd="40dp"
+            android:text="Registra tus artículos."
+            android:textAlignment="gravity"
+            android:textColor="@color/almost_black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:cornerRadius="32dp" />
+
+        <ImageView
+            android:id="@+id/iconoregistrar"
+            android:layout_width="150dp"
+            android:layout_height="163dp"
+            android:layout_gravity="start|bottom"
+            app:srcCompat="@drawable/estrella" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="By Johan Sebastián Quintero"
+        android:textColor="@color/principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verificar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Capa con la imagen -->
+    <item>
+        <bitmap
+            android:src="@drawable/mapa"
+            android:gravity="center"
+            android:tileMode="disabled" />
+    </item>
+
+    <!-- Capa semitransparente para atenuar la imagen -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#AA000000"/> <!-- Negro atenuado -->
+            <corners android:radius="30dp"/>
+        </shape>
+    </item>
+
+</layer-list>

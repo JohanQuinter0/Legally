@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/misDatos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MisDatos"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/botonregresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <TextView
+        android:id="@+id/micuentatitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Mi cuenta"
+        android:textColor="@color/principal"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iconuser"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/userimg" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/rounded_button_background"
+        android:orientation="vertical"
+        android:paddingHorizontal="0dp"
+        android:paddingTop="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/micuentatitle">>
+
+        <TextView
+            android:id="@+id/misdatostxt"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center|start"
+            android:paddingHorizontal="50dp"
+            android:text="Mis datos"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@color/almost_black" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userperfilimg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:paddingVertical="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/userperfilimg" />
+
+        <TextView
+            android:id="@+id/btncambiarperfilimg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:gravity="center|center_horizontal"
+            android:text="Cambiar foto de perfil"
+            android:textColor="@color/principal" />
+
+        <TextView
+            android:id="@+id/nuevonombreusuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="30dp"
+            android:text="Cambiar nombre de usuario"
+            android:textColor="@color/almost_black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nuevonombreInput"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/poppins"
+            android:hint="Nombre de usuario"
+            android:paddingHorizontal="15dp"
+            android:textAlignment="viewStart"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/nuevocorreousuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="30dp"
+            android:text="Cambiar correo electrónico"
+            android:textColor="@color/almost_black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nuevocorreoInput"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/poppins"
+            android:hint="Correo electrónico"
+            android:paddingHorizontal="15dp"
+            android:textAlignment="viewStart"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/nuevotelefonousuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="30dp"
+            android:text="Cambiar número de teléfono"
+            android:textColor="@color/almost_black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp">
+
+            <ImageView
+                android:id="@+id/triangulo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                app:srcCompat="@drawable/triangulo" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nuevotelefonoInput"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center|top"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/edittext_background"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/poppins"
+                android:hint="Número de teléfono"
+                android:paddingHorizontal="15dp"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/siguiente"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/btn1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
