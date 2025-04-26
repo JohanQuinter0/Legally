@@ -76,7 +76,6 @@ class Chat : AppCompatActivity() {
         cargarImagenPerfil(correoDestino)
     }
 
-    // Método para cargar los mensajes de Firestore
     private fun cargarMensajes() {
         db.collection("chats").document(chatId)
             .collection("mensajes")
@@ -95,7 +94,6 @@ class Chat : AppCompatActivity() {
             }
     }
 
-    // Método para enviar un mensaje a Firestore
     private fun enviarMensaje() {
         val texto = mensajeInput.text.toString().trim()
         if (texto.isEmpty()) return
