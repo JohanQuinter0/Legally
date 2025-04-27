@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".Registro">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/registro"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".Registro">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/btnEmpezar"
@@ -294,8 +294,8 @@
             android:id="@+id/star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/star" />
