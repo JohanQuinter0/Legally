@@ -91,16 +91,19 @@ class Chat : AppCompatActivity() {
             .addSnapshotListener { snapshots, e ->
                 if (e != null || snapshots == null) return@addSnapshotListener
 
-                listaMensajes.clear()
+                val mensajes = mutableListOf<Mensaje>()
                 for (doc in snapshots) {
                     val mensaje = doc.toObject(Mensaje::class.java)
-                    listaMensajes.add(mensaje)
+                    mensajes.add(mensaje)
                 }
 
-                adapter.notifyDataSetChanged()
-                recyclerView.scrollToPosition(listaMensajes.size - 1)
+                // Aquí: en vez de solo actualizar la lista y notificar...
+                adapter = MensajeAdapter(mensajes, miCorreo) // <-- CREAMOS UN NUEVO ADAPTER
+                recyclerView.adapter = adapter
+                recyclerView.scrollToPosition(adapter.itemCount - 1)
             }
     }
+
 
     private fun enviarMensaje() {
         val texto = mensajeInput.text.toString().trim()

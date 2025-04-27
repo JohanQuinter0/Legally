@@ -2,6 +2,7 @@ package com.example.legally
 
 import android.content.Context
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,8 @@ class informacionUsuario : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        findViewById<ImageView>(R.id.back).setOnClickListener { finish() }
 
         imageView = findViewById(R.id.imguser)
         val correoDestino = intent.getStringExtra("correoDestino") ?: return
