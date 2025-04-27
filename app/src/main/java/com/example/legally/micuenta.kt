@@ -41,5 +41,9 @@ class micuenta : AppCompatActivity() {
         BtnCambiarDatos.setOnClickListener {
             startActivity(Intent(this, MisDatos::class.java))
         }
+
+        findViewById<LinearLayout>(R.id.btncambiarcontrasena).setOnClickListener {
+            startActivity(Intent(this, RestablecerContrasena::class.java))
+        }
     }
 }

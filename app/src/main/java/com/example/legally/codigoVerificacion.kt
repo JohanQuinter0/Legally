@@ -12,7 +12,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 class codigoVerificacion : AppCompatActivity() {
 
@@ -24,6 +28,15 @@ class codigoVerificacion : AppCompatActivity() {
         setContentView(R.layout.activity_codigoverificacion)
 
         findViewById<ImageView>(R.id.back).setOnClickListener { finish() }
+
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.digito1)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         val btnContinuar: Button = findViewById(R.id.btnConfirmarRegistro)
         val otpDigit1: EditText = findViewById(R.id.otpDigit5)

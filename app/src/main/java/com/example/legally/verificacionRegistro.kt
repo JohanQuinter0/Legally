@@ -17,6 +17,10 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 class verificacionRegistro : AppCompatActivity() {
 
@@ -33,6 +37,15 @@ class verificacionRegistro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verificacionregistro)
+
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.confirmarRegistroOtp)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         obtenerDatosIntent()
 

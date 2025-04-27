@@ -83,7 +83,6 @@ class contrasenaNueva : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 🔸 Buscar el usuario por su correo en la colección "usuarios"
             db.collection("usuarios")
                 .whereEqualTo("correo", correo)
                 .get()
@@ -91,7 +90,6 @@ class contrasenaNueva : AppCompatActivity() {
                     if (!documents.isEmpty) {
                         val docId = documents.documents[0].id
 
-                        // 🔹 Actualizar contraseña
                         db.collection("usuarios")
                             .document(docId)
                             .update("contrasena", nuevaContrasena)
