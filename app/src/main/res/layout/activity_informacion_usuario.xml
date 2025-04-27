@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/informacionUsuario"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".informacionUsuario"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/botonregresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <TextView
+        android:id="@+id/userTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins_bold"
+        android:freezesText="false"
+        android:text="Información de usuario"
+        android:textColor="@color/principal"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/userDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="0dp"
+        android:paddingTop="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userTitle">>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imguser"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:paddingVertical="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/userperfilimg" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/nombre"
+            android:layout_height="wrap_content"
+            android:text="user123"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/principal"
+            android:textSize="28sp"
+            android:paddingVertical="25dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="15dp"
+            android:paddingLeft="50dp">
+
+            <ImageView
+                android:id="@+id/check"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/check_big" />
+
+            <TextView
+                android:id="@+id/usuarioverificado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/almost_black"
+                android:text="Usuario verificado" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="15dp"
+            android:paddingLeft="50dp">
+
+            <ImageView
+                android:id="@+id/heart"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/heart_02" />
+
+            <TextView
+                android:id="@+id/legallydesde"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/almost_black"
+                android:text="Legally desde hace 1 año" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="15dp"
+            android:paddingLeft="50dp">
+
+            <ImageView
+                android:id="@+id/star"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/star1" />
+
+            <TextView
+                android:id="@+id/haayudado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="50dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/almost_black"
+                android:text="Ha ayudado a 2 personas a recuperar sus artículos" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnReportarUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="15dp"
+            android:paddingLeft="50dp">
+
+            <ImageView
+                android:id="@+id/warning"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/triangle_warning" />
+
+            <TextView
+                android:id="@+id/reportar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:text="Reportar usuario"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/red"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

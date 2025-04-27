@@ -16,6 +16,8 @@ import com.google.firebase.ktx.Firebase
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import android.content.Context
+import android.content.Intent
+import de.hdodenhof.circleimageview.CircleImageView
 
 class Chat : AppCompatActivity() {
 
@@ -29,7 +31,7 @@ class Chat : AppCompatActivity() {
     private lateinit var btnEnviar: ImageView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MensajeAdapter
-    private lateinit var userIcon: ImageView
+    private lateinit var imageView: CircleImageView
     private val listaMensajes = mutableListOf<Mensaje>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +45,12 @@ class Chat : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        findViewById<ImageView>(R.id.userIcon).setOnClickListener {
+            val intent = Intent(this, informacionUsuario::class.java)
+            intent.putExtra("correoDestino", otroCorreo)
+            startActivity(intent)
         }
 
         chatId = intent.getStringExtra("chatId") ?: return
@@ -63,7 +71,7 @@ class Chat : AppCompatActivity() {
         mensajeInput = findViewById(R.id.inputMensaje)
         btnEnviar = findViewById(R.id.btnEnviar)
         recyclerView = findViewById(R.id.recyclerMensajes)
-        userIcon = findViewById(R.id.userIcon)
+        imageView = findViewById(R.id.userIcon)
 
         adapter = MensajeAdapter(listaMensajes, miCorreo)
         recyclerView.adapter = adapter
@@ -108,7 +116,7 @@ class Chat : AppCompatActivity() {
             .collection("mensajes")
             .add(mensaje)
             .addOnSuccessListener {
-                mensajeInput.setText("") // Limpiar el campo de texto después de enviar
+                mensajeInput.setText("")
             }
 
         db.collection("chats").document(chatId).set(
@@ -132,33 +140,33 @@ class Chat : AppCompatActivity() {
 
                 if (!imagenUrl.isNullOrEmpty() && imagenUrl.startsWith("data:image")) {
                     try {
-                        GlideApp.with(this)
+                        informacionUsuario.GlideApp.with(this)
                             .load(imagenUrl)
                             .placeholder(R.drawable.userperfilimg)
                             .error(R.drawable.userperfilimg)
-                            .into(userIcon)
+                            .into(imageView)
                     } catch (e: Exception) {
-                        userIcon.setImageResource(R.drawable.userperfilimg)
+                        imageView.setImageResource(R.drawable.userperfilimg)
                     }
                 }
                 else if (!imagenUrl.isNullOrEmpty() && imagenUrl.startsWith("http")) {
                     try {
-                        GlideApp.with(this)
+                        informacionUsuario.GlideApp.with(this)
                             .load(imagenUrl)
                             .placeholder(R.drawable.userperfilimg)
                             .error(R.drawable.userperfilimg)
-                            .into(userIcon)
+                            .into(imageView)
                     } catch (e: Exception) {
-                        userIcon.setImageResource(R.drawable.userperfilimg)
+                        imageView.setImageResource(R.drawable.userperfilimg)
                     }
                 } else {
-                    userIcon.setImageResource(R.drawable.userperfilimg)
+                    imageView.setImageResource(R.drawable.userperfilimg)
                 }
             } else {
-                userIcon.setImageResource(R.drawable.userperfilimg)
+                imageView.setImageResource(R.drawable.userperfilimg)
             }
         }.addOnFailureListener {
-            userIcon.setImageResource(R.drawable.userperfilimg)
+            imageView.setImageResource(R.drawable.userperfilimg)
         }
     }
 
