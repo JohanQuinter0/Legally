@@ -108,9 +108,9 @@ class notificaciones : AppCompatActivity() {
 
     private fun obtenerMensajeNotificacion(esTuArticulo: Boolean, nombreUsuario: String): String {
         return if (esTuArticulo) {
-            "Alguien ha encontrado tu artículo perdido, $nombreUsuario quiere comunicarse contigo."
+            "Tienes una notificación nueva, revisa esta conversación con $nombreUsuario sobre un artículo perdido."
         } else {
-            "Has encontrado un artículo perdido de $nombreUsuario, dale mas detalles."
+            "Tienes una notificación nueva, revisa esta conversación con $nombreUsuario sobre un artículo perdido."
         }
     }
 }
