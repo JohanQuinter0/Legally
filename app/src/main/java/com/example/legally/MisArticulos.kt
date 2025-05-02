@@ -59,6 +59,11 @@ class MisArticulos : AppCompatActivity() {
         findViewById<ImageView>(R.id.back).setOnClickListener {
             finish()
         }
+
+        findViewById<Button>(R.id.btnRegistrarArts).setOnClickListener {
+            startActivity(Intent(this, RegistroArticulo::class.java))
+            finish()
+        }
     }
 
     private fun setupRecyclerView() {
