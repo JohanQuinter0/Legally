@@ -226,6 +226,7 @@ class ArtView : AppCompatActivity() {
         }
         dialogView.findViewById<Button>(R.id.btnEntendido).setOnClickListener {
             startActivity(Intent(this, MisArticulos::class.java))
+            finish()
         }
 
         dialog.show()
