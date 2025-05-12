@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -28,7 +27,6 @@ class Registro : AppCompatActivity() {
     private lateinit var confirmarContrasenaInput: EditText
     private lateinit var spinnerTipoDoc: Spinner
 
-    private val auth = Firebase.auth
     private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -209,7 +207,7 @@ class Registro : AppCompatActivity() {
         contrasena: String,
         codigoOTP: String
     ) {
-        Intent(this, verificacionRegistro::class.java).apply {
+        Intent(this, VerificacionRegistro::class.java).apply {
             putExtra("correo", correo)
             putExtra("nombre", nombre)
             putExtra("tipoDocumento", tipoDocumento)

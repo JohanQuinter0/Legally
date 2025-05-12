@@ -1,8 +1,7 @@
 package com.example.legally
 
-import android.app.Activity
+import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -14,9 +13,9 @@ import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.google.firebase.firestore.ktx.firestore
@@ -50,7 +49,12 @@ class RegistroArticulo : AppCompatActivity() {
         }
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.registroArticulo)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -77,6 +81,7 @@ class RegistroArticulo : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("IntentReset")
     private fun seleccionarImagen() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
@@ -84,14 +89,14 @@ class RegistroArticulo : AppCompatActivity() {
     }
 
     private val launcherGaleria = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+        if (result.resultCode == RESULT_OK && result.data != null) {
             imagenUri = result.data!!.data
             Toast.makeText(this, "Imagen seleccionada", Toast.LENGTH_SHORT).show()
         }
     }
 
     private suspend fun convertirImagenABase64(uri: Uri): String {
-        val bitmap = withContext(Dispatchers.IO) {
+        @Suppress("DEPRECATION") val bitmap = withContext(Dispatchers.IO) {
             MediaStore.Images.Media.getBitmap(contentResolver, uri)
         }
 
@@ -109,7 +114,7 @@ class RegistroArticulo : AppCompatActivity() {
         val descripcion = findViewById<TextView>(R.id.detallesInput).text.toString().trim()
         val tipo = spinnerTipoArt.selectedItem.toString()
 
-        val prefs = getSharedPreferences("usuario_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
         val correoUsuario = prefs.getString("correo_usuario", "") ?: ""
 
         if (correoUsuario.isEmpty() || nombre.isEmpty() || marca.isEmpty() || serialArticulo.isEmpty() || descripcion.isEmpty()) {
@@ -123,8 +128,8 @@ class RegistroArticulo : AppCompatActivity() {
                 val docSnapshot = docRef.get().await()
 
                 if (docSnapshot.exists()) {
-                    val dueño = docSnapshot.getString("id_usuario")
-                    if (dueño != correoUsuario) {
+                    val dueno = docSnapshot.getString("id_usuario")
+                    if (dueno != correoUsuario) {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
                                 this@RegistroArticulo,
@@ -227,7 +232,7 @@ class RegistroArticulo : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     mostrarExitoReporte()
                 }
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@RegistroArticulo, "Error al reportar el artículo", Toast.LENGTH_SHORT).show()
                 }

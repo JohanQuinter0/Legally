@@ -5,7 +5,7 @@
     android:id="@+id/informacionUsuario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".informacionUsuario"
+    tools:context=".InformacionUsuario"
     android:background="@color/white">
 
     <ImageView

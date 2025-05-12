@@ -1,3 +1,4 @@
+@file:Suppress("PropertyName")
 package com.example.legally
 
 data class Articulo(

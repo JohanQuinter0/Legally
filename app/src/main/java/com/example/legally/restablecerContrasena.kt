@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,7 +29,12 @@ class RestablecerContrasena : AppCompatActivity() {
         setContentView(R.layout.activity_restablecercontrasena)
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.RestablecerContrasena)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -81,7 +86,7 @@ class RestablecerContrasena : AppCompatActivity() {
                         Toast.makeText(applicationContext, "El correo no está registrado", Toast.LENGTH_SHORT).show()
                     }
                 }
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(applicationContext, "Error al verificar el correo", Toast.LENGTH_SHORT).show()
                 }
@@ -96,7 +101,7 @@ class RestablecerContrasena : AppCompatActivity() {
                 if (codigoOTP != null) {
                     Toast.makeText(applicationContext, "Código enviado a $correo", Toast.LENGTH_LONG).show()
 
-                    val intent = Intent(applicationContext, codigoVerificacion::class.java)
+                    val intent = Intent(applicationContext, CodigoVerificacion::class.java)
                     intent.putExtra("correo", correo)
                     intent.putExtra("codigoOTP", codigoOTP)
                     startActivity(intent)

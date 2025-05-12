@@ -1,7 +1,6 @@
 package com.example.legally
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import androidx.core.graphics.toColorInt
 
-class contrasenaNueva : AppCompatActivity() {
+class ContrasenaNueva : AppCompatActivity() {
 
     private lateinit var inputNuevaContrasena: EditText
     private lateinit var inputConfirmarContrasena: EditText

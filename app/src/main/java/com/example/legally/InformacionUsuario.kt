@@ -14,7 +14,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
 
-class informacionUsuario : AppCompatActivity() {
+class InformacionUsuario : AppCompatActivity() {
 
     private val db = Firebase.firestore
     private lateinit var imageView: CircleImageView
@@ -54,7 +54,7 @@ class informacionUsuario : AppCompatActivity() {
                             .placeholder(R.drawable.userperfilimg)
                             .error(R.drawable.userperfilimg)
                             .into(imageView)
-                    } catch (e: Exception) {
+                    } catch (_: Exception) {
                         imageView.setImageResource(R.drawable.userperfilimg)
                     }
                 } else if (!imagenUrl.isNullOrEmpty() && imagenUrl.startsWith("http")) {
@@ -64,7 +64,7 @@ class informacionUsuario : AppCompatActivity() {
                             .placeholder(R.drawable.userperfilimg)
                             .error(R.drawable.userperfilimg)
                             .into(imageView)
-                    } catch (e: Exception) {
+                    } catch (_: Exception) {
                         imageView.setImageResource(R.drawable.userperfilimg)
                     }
                 } else {

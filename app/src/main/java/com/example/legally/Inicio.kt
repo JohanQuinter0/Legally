@@ -17,12 +17,12 @@ class Inicio : AppCompatActivity() {
 
         val btnNotificacion = findViewById<ImageView>(R.id.btnnotificacion)
         btnNotificacion.setOnClickListener {
-            startActivity(Intent(this, notificaciones::class.java))
+            startActivity(Intent(this, Notificaciones::class.java))
         }
 
         val btnUser = findViewById<ImageView>(R.id.btnuser)
         btnUser.setOnClickListener {
-            startActivity(Intent(this, micuenta::class.java))
+            startActivity(Intent(this, MiCuenta::class.java))
         }
 
         val registrarArticuloBtn = findViewById<Button>(R.id.btnregistrar)

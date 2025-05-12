@@ -1,13 +1,12 @@
 package com.example.legally
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,7 +24,12 @@ class EscogerArticuloMapa : AppCompatActivity() {
         setContentView(R.layout.activity_escoger_articulo_mapa)
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mis_articulos)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -40,7 +44,7 @@ class EscogerArticuloMapa : AppCompatActivity() {
             finish()
         }
 
-        val prefs = getSharedPreferences("usuario_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
         val correoUsuario = prefs.getString("correo_usuario", null)
 
         if (correoUsuario == null) {
@@ -63,11 +67,19 @@ class EscogerArticuloMapa : AppCompatActivity() {
                     val intent = Intent(this, Mapa::class.java)
                     intent.putExtra("SELECT_LOCATION", true)
                     intent.putExtra("ARTICULO_ID", articulo.serial)
-                    startActivity(intent)
+                    @Suppress("DEPRECATION")
+                    startActivityForResult(intent, 1001)
                 }
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Error cargando articulos perdidos", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1001 && resultCode == RESULT_OK) {
+            finish()
+        }
     }
 }

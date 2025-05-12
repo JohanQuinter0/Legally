@@ -3,17 +3,15 @@ package com.example.legally
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.edit
 
-class micuenta : AppCompatActivity() {
+class MiCuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,10 +24,10 @@ class micuenta : AppCompatActivity() {
         }
         findViewById<ImageView>(R.id.back).setOnClickListener { finish() }
 
-        val BtnCerrarSesion: View = findViewById(R.id.btncerrarsesion)
-        BtnCerrarSesion.setOnClickListener {
+        val btnCerrarSesion: View = findViewById(R.id.btncerrarsesion)
+        btnCerrarSesion.setOnClickListener {
             val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
-            prefs.edit().clear().apply()
+            prefs.edit { clear() }
 
             val intent = Intent(this, InicioSesion::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -37,8 +35,8 @@ class micuenta : AppCompatActivity() {
             finish()
         }
 
-        val BtnCambiarDatos: LinearLayout = findViewById(R.id.btnmisdatos)
-        BtnCambiarDatos.setOnClickListener {
+        val btnCambiarDatos: LinearLayout = findViewById(R.id.btnmisdatos)
+        btnCambiarDatos.setOnClickListener {
             startActivity(Intent(this, MisDatos::class.java))
         }
 

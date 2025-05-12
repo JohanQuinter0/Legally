@@ -118,6 +118,11 @@ class MisArticulos : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        cargarArticulos()
+    }
+
     private fun mostrarError(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
         tvMensaje.visibility = View.VISIBLE

@@ -1,5 +1,6 @@
 package com.example.legally
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -17,12 +18,12 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 
-class verificacionRegistro : AppCompatActivity() {
+class VerificacionRegistro : AppCompatActivity() {
 
     private var correctOTP: String? = null
     private lateinit var correo: String
@@ -39,7 +40,12 @@ class verificacionRegistro : AppCompatActivity() {
         setContentView(R.layout.activity_verificacionregistro)
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.confirmarRegistroOtp)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -143,7 +149,7 @@ class verificacionRegistro : AppCompatActivity() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        this@verificacionRegistro,
+                        this@VerificacionRegistro,
                         "Error al registrar: ${e.message}",
                         Toast.LENGTH_LONG
                     ).show()
@@ -161,6 +167,7 @@ class verificacionRegistro : AppCompatActivity() {
         editTexts.forEach { it.background = errorDrawable }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun resetBorders(vararg editTexts: EditText) {
         val normalDrawable = resources.getDrawable(R.drawable.otp_background, theme)
         editTexts.forEach { it.background = normalDrawable }

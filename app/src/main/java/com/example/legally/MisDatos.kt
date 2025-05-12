@@ -1,6 +1,6 @@
 package com.example.legally
 
-import android.app.Activity
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -14,8 +14,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.bumptech.glide.Glide
@@ -26,6 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
+import androidx.core.graphics.scale
 
 class MisDatos : AppCompatActivity() {
 
@@ -38,7 +39,12 @@ class MisDatos : AppCompatActivity() {
         setContentView(R.layout.activity_mis_datos)
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.misDatos)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -56,6 +62,7 @@ class MisDatos : AppCompatActivity() {
         cargarImagenDeFirebase()
     }
 
+    @SuppressLint("IntentReset")
     private fun seleccionarImagen() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
@@ -63,7 +70,7 @@ class MisDatos : AppCompatActivity() {
     }
 
     private val launcherGaleria = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+        if (result.resultCode == RESULT_OK && result.data != null) {
             imagenUri = result.data!!.data
             val imageView: CircleImageView = findViewById(R.id.userperfilimg)
 
@@ -86,9 +93,9 @@ class MisDatos : AppCompatActivity() {
         }
     }
 
-    private suspend fun convertirImagenABase64(uri: Uri): String {
-        val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
-        val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 400, 400, true)
+    private fun convertirImagenABase64(uri: Uri): String {
+        @Suppress("DEPRECATION") val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
+        val scaledBitmap = bitmap.scale(400, 400)
 
         val outputStream = ByteArrayOutputStream()
         scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 70, outputStream)
@@ -98,7 +105,7 @@ class MisDatos : AppCompatActivity() {
     }
 
     private fun guardarImagenEnFirebase(base64: String) {
-        val prefs = getSharedPreferences("usuario_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
         val correoUsuario = prefs.getString("correo_usuario", "") ?: ""
 
         if (correoUsuario.isEmpty()) {
@@ -118,7 +125,7 @@ class MisDatos : AppCompatActivity() {
     }
 
     private fun cargarImagenDeFirebase() {
-        val prefs = getSharedPreferences("usuario_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
         val correoUsuario = prefs.getString("correo_usuario", "") ?: ""
 
         if (correoUsuario.isEmpty()) {
@@ -162,7 +169,7 @@ class MisDatos : AppCompatActivity() {
             val pureBase64 = base64.substringAfter(",")
             val decodedBytes = Base64.decode(pureBase64, Base64.DEFAULT)
             return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             return null
         }
     }

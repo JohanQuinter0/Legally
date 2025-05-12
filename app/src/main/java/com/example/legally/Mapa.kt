@@ -13,8 +13,8 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.legally.databinding.ActivityMapaBinding
@@ -61,7 +61,12 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         }
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mapa)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -130,22 +135,19 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 obtenerDireccion(latLng) { direccion ->
                     guardarUbicacionEnFirebase(articleId, latLng, direccion) {
                         cerrarOverlay()
-                        val intent = Intent(this, ArtView::class.java)
-                        intent.putExtra("serial", articleId)
-                        intent.putExtra("ubicacion_aproximada", direccion)
-                        intent.putExtra("modo_verificacion", true)
-                        intent.putExtra("es_perdido", true)
+
+                        setResult(RESULT_OK)
+
+                        val intent = Intent(this, ArtView::class.java).apply {
+                            putExtra("serial", articleId)
+                            putExtra("ubicacion_aproximada", direccion ?: "Ubicación desconocida")
+                            putExtra("modo_verificacion", true)
+                            putExtra("es_perdido", true)
+                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        }
                         startActivity(intent)
                         finish()
                     }
-                    cerrarOverlay()
-                    val intent = Intent(this, ArtView::class.java)
-                    intent.putExtra("serial", articleId)
-                    intent.putExtra("ubicacion_aproximada", direccion ?: "Ubicación desconocida")
-                    intent.putExtra("modo_verificacion", true)
-                    intent.putExtra("es_perdido", true)
-                    startActivity(intent)
-                    finish()
                 }
             }
         }
@@ -165,13 +167,13 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     private fun obtenerDireccion(latLng: LatLng, callback: (String?) -> Unit) {
         try {
             val geocoder = Geocoder(this, Locale.getDefault())
-            val direcciones = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
+            @Suppress("DEPRECATION") val direcciones = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
             if (!direcciones.isNullOrEmpty()) {
                 callback(direcciones[0].getAddressLine(0))
             } else {
                 callback(null)
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             callback(null)
         }
     }

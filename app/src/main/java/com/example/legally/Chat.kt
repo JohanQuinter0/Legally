@@ -3,7 +3,6 @@ package com.example.legally
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -13,10 +12,8 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
-import android.content.Context
 import android.content.Intent
+import androidx.core.view.WindowCompat
 import de.hdodenhof.circleimageview.CircleImageView
 
 class Chat : AppCompatActivity() {
@@ -39,7 +36,12 @@ class Chat : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.chat)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -48,7 +50,7 @@ class Chat : AppCompatActivity() {
         }
 
         findViewById<ImageView>(R.id.userIcon).setOnClickListener {
-            val intent = Intent(this, informacionUsuario::class.java)
+            val intent = Intent(this, InformacionUsuario::class.java)
             intent.putExtra("correoDestino", otroCorreo)
             startActivity(intent)
         }
@@ -97,8 +99,7 @@ class Chat : AppCompatActivity() {
                     mensajes.add(mensaje)
                 }
 
-                // Aquí: en vez de solo actualizar la lista y notificar...
-                adapter = MensajeAdapter(mensajes, miCorreo) // <-- CREAMOS UN NUEVO ADAPTER
+                adapter = MensajeAdapter(mensajes, miCorreo)
                 recyclerView.adapter = adapter
                 recyclerView.scrollToPosition(adapter.itemCount - 1)
             }
@@ -143,23 +144,23 @@ class Chat : AppCompatActivity() {
 
                 if (!imagenUrl.isNullOrEmpty() && imagenUrl.startsWith("data:image")) {
                     try {
-                        informacionUsuario.GlideApp.with(this)
+                        InformacionUsuario.GlideApp.with(this)
                             .load(imagenUrl)
                             .placeholder(R.drawable.userperfilimg)
                             .error(R.drawable.userperfilimg)
                             .into(imageView)
-                    } catch (e: Exception) {
+                    } catch (_: Exception) {
                         imageView.setImageResource(R.drawable.userperfilimg)
                     }
                 }
                 else if (!imagenUrl.isNullOrEmpty() && imagenUrl.startsWith("http")) {
                     try {
-                        informacionUsuario.GlideApp.with(this)
+                        InformacionUsuario.GlideApp.with(this)
                             .load(imagenUrl)
                             .placeholder(R.drawable.userperfilimg)
                             .error(R.drawable.userperfilimg)
                             .into(imageView)
-                    } catch (e: Exception) {
+                    } catch (_: Exception) {
                         imageView.setImageResource(R.drawable.userperfilimg)
                     }
                 } else {
@@ -170,14 +171,6 @@ class Chat : AppCompatActivity() {
             }
         }.addOnFailureListener {
             imageView.setImageResource(R.drawable.userperfilimg)
-        }
-    }
-
-    class GlideApp private constructor() {
-        companion object {
-            fun with(context: Context): RequestManager {
-                return Glide.with(context)
-            }
         }
     }
 

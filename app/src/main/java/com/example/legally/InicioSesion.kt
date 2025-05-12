@@ -1,6 +1,5 @@
 package com.example.legally
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +13,12 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
+import androidx.core.content.edit
 
 class InicioSesion : AppCompatActivity() {
 
     private lateinit var correoInput: EditText
-    private lateinit var contraseñaInput: EditText
+    private lateinit var contrasenaInput: EditText
     private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class InicioSesion : AppCompatActivity() {
 
     private fun setupViews() {
         correoInput = findViewById(R.id.UsuarioInput)
-        contraseñaInput = findViewById(R.id.ContraseñaInput)
+        contrasenaInput = findViewById(R.id.ContraseñaInput)
 
         findViewById<ImageView>(R.id.back).setOnClickListener {
             startActivity(Intent(this, Intro::class.java))
@@ -65,15 +65,15 @@ class InicioSesion : AppCompatActivity() {
 
     private fun iniciarSesion() {
         val correo = correoInput.text.toString().trim()
-        val contraseña = contraseñaInput.text.toString().trim()
+        val contrasena = contrasenaInput.text.toString().trim()
 
-        if (!validarCampos(correo, contraseña)) return
+        if (!validarCampos(correo, contrasena)) return
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val snapshot = db.collection("usuarios")
                     .whereEqualTo("correo", correo)
-                    .whereEqualTo("contrasena", contraseña)
+                    .whereEqualTo("contrasena", contrasena)
                     .get()
                     .await()
 
@@ -95,7 +95,7 @@ class InicioSesion : AppCompatActivity() {
         }
     }
 
-    private fun validarCampos(correo: String, contraseña: String): Boolean {
+    private fun validarCampos(correo: String, contrasena: String): Boolean {
         var valido = true
         val errorMessage: TextView = findViewById(R.id.errorMessage)
 
@@ -106,11 +106,11 @@ class InicioSesion : AppCompatActivity() {
             correoInput.setBackgroundResource(R.drawable.edittext_background)
         }
 
-        if (contraseña.isEmpty()) {
-            contraseñaInput.setBackgroundResource(R.drawable.edittext_background_error)
+        if (contrasena.isEmpty()) {
+            contrasenaInput.setBackgroundResource(R.drawable.edittext_background_error)
             valido = false
         } else {
-            contraseñaInput.setBackgroundResource(R.drawable.edittext_background)
+            contrasenaInput.setBackgroundResource(R.drawable.edittext_background)
         }
 
         if (!valido) {
@@ -124,8 +124,8 @@ class InicioSesion : AppCompatActivity() {
     }
 
     private fun guardarDatosUsuario(correo: String) {
-        val prefs = getSharedPreferences("usuario_prefs", Context.MODE_PRIVATE)
-        prefs.edit().putString("correo_usuario", correo).apply()
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+        prefs.edit { putString("correo_usuario", correo) }
     }
 
     private fun mostrarInicioSesionExitoso() {
@@ -148,6 +148,6 @@ class InicioSesion : AppCompatActivity() {
         val errorMessage: TextView = findViewById(R.id.errorMessage)
         errorMessage.visibility = TextView.VISIBLE
         Toast.makeText(this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show()
-        contraseñaInput.setBackgroundResource(R.drawable.edittext_background_error)
+        contrasenaInput.setBackgroundResource(R.drawable.edittext_background_error)
     }
 }

@@ -107,9 +107,14 @@ class ArtView : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "Error al obtener estado del artículo", Toast.LENGTH_SHORT).show()
             }
+
+        txtEscogerUbicacion.setOnClickListener {
+            val intent = Intent(this, Mapa::class.java)
+            intent.putExtra("SELECT_LOCATION", true)
+            intent.putExtra("ARTICULO_ID", serialArticulo)
+            startActivity(intent)
+        }
     }
-
-
 
     private fun configurarVistaArticuloPerdido() {
         val rojo = ContextCompat.getColor(this, R.color.red)
@@ -224,7 +229,10 @@ class ArtView : AppCompatActivity() {
             startActivity(Intent(this, RegistroArticulo::class.java))
         }
         dialogView.findViewById<Button>(R.id.btnEntendido).setOnClickListener {
-            startActivity(Intent(this, MisArticulos::class.java))
+            val intent = Intent(this, MisArticulos::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
+            startActivity(intent)
             finish()
         }
 
@@ -324,6 +332,11 @@ class ArtView : AppCompatActivity() {
                 Toast.makeText(this, "Error al cargar los datos", Toast.LENGTH_SHORT).show()
                 finish()
             }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cargarDatosArticulo(serialArticulo)
     }
 
     private fun String.capitalize(): String {

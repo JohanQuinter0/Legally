@@ -12,13 +12,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 
-class codigoVerificacion : AppCompatActivity() {
+class CodigoVerificacion : AppCompatActivity() {
 
     private var correctOTP: String? = null
     private lateinit var correo: String
@@ -30,7 +30,12 @@ class codigoVerificacion : AppCompatActivity() {
         findViewById<ImageView>(R.id.back).setOnClickListener { finish() }
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.digito1)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -60,7 +65,7 @@ class codigoVerificacion : AppCompatActivity() {
                 errorMessage.visibility = TextView.GONE
                 resetBorders(otpDigit1, otpDigit2, otpDigit3, otpDigit4)
 
-                val intent = Intent(this, contrasenaNueva::class.java)
+                val intent = Intent(this, ContrasenaNueva::class.java)
                 intent.putExtra("correo", correo)
                 startActivity(intent)
                 finish()

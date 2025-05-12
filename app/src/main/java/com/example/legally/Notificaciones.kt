@@ -9,15 +9,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.firestore
 
-class notificaciones : AppCompatActivity() {
+class Notificaciones : AppCompatActivity() {
 
     private val db = Firebase.firestore
     private lateinit var contenedorNotis: LinearLayout
@@ -36,7 +36,12 @@ class notificaciones : AppCompatActivity() {
         cargarNotificaciones()
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
+
+        window.setBackgroundDrawableResource(R.color.white)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.notificaciones)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -61,11 +66,11 @@ class notificaciones : AppCompatActivity() {
                     val chatId = doc.id
                     val participantes = doc.get("participantes") as List<String>
                     val otroCorreo = participantes.first { it != miCorreo }
-                    val ultimoMensaje = doc.getString("ultimoMensaje") ?: ""
+                    doc.getString("ultimoMensaje") ?: ""
                     val propietario = doc.getString("propietario") ?: ""
 
                     val esTuArticulo = propietario == miCorreo
-                    val estadoLeido = doc.getBoolean("leido_$miCorreo") ?: false
+                    val estadoLeido = doc.getBoolean("leido_$miCorreo") == true
 
                     db.collection("usuarios").document(otroCorreo).get()
                         .addOnSuccessListener { userDoc ->
