@@ -126,6 +126,10 @@ class VerificarArticulo : AppCompatActivity() {
 
             dialog.dismiss()
         }
+
+        view.findViewById<Button?>(R.id.btnIntentarDeNueva)?.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
 

@@ -3,6 +3,13 @@
 
     <string name="botonregresar">Botón para regresar</string>
     <string name="continuar">Continuar</string>
+    <string name="iconoArticulo">Ícono artículo</string>
+    <string name="nombreDelArticulo">Nombre del artículo</string>
+    <string name="sn">S/N: XXXXX</string>
+    <string name="detalles">Detalles:\n...</string>
+    <string name="articuloPerdido">Artículo perdido</string>
+    <string name="tipo">Tipo: %1$s</string>
+    <string name="marcaNombre">%1$s %2$s</string>
 
     <string-array name="tipo_documento">
         <item>Tipo de Documento</item>

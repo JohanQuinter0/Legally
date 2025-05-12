@@ -1,9 +1,7 @@
 package com.example.legally
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import androidx.core.net.toUri
 
 class ArtView : AppCompatActivity() {
 
@@ -67,7 +66,7 @@ class ArtView : AppCompatActivity() {
                 val estado = doc.getString("estado") ?: "activo"
                 val propietario = doc.getString("id_usuario") ?: ""
 
-                val prefs = getSharedPreferences("usuario_prefs", Context.MODE_PRIVATE)
+                val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
                 val correoActual = prefs.getString("correo_usuario", null)
 
                 val esArticuloDeMiPropiedad = correoActual != null && correoActual == propietario
@@ -117,7 +116,7 @@ class ArtView : AppCompatActivity() {
         findViewById<TextView>(R.id.nombre_articulo_card).setTextColor(rojo)
         findViewById<TextView>(R.id.tipoartcard).setTextColor(rojo)
         findViewById<TextView>(R.id.misArtsTitle).apply {
-            text = "Artículo perdido"
+            text = context.getString(R.string.articuloPerdido)
             setTextColor(rojo)
         }
         findViewById<ImageView>(R.id.back).setColorFilter(rojo)
@@ -125,7 +124,7 @@ class ArtView : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnContactarPolicia).setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
-                data = Uri.parse("tel:123")
+                data = "tel:123".toUri()
             }
             startActivity(intent)
         }
@@ -280,8 +279,9 @@ class ArtView : AppCompatActivity() {
                     val marca = doc.getString("marca_articulo") ?: ""
                     val urlImagen = doc.getString("imagen_base64")
 
-                    findViewById<TextView>(R.id.nombre_articulo_card).text = "$marca $nombre"
-                    findViewById<TextView>(R.id.tipoartcard).text = "Tipo: $tipo"
+                    findViewById<TextView>(R.id.nombre_articulo_card).text =
+                        getString(R.string.marcaNombre, marca, nombre)
+                    findViewById<TextView>(R.id.tipoartcard).text = getString(R.string.tipo, tipo)
                     findViewById<TextView>(R.id.artserialcard).text = HtmlCompat.fromHtml("<b>S/N:</b> $serial", HtmlCompat.FROM_HTML_MODE_LEGACY)
                     findViewById<TextView>(R.id.artdetallescard).text = HtmlCompat.fromHtml("<b>Detalles:</b><br>$descripcion", HtmlCompat.FROM_HTML_MODE_LEGACY)
                     findViewById<TextView>(R.id.artregistradocard).text = HtmlCompat.fromHtml("<b>Marca:</b> $marca", HtmlCompat.FROM_HTML_MODE_LEGACY)
@@ -308,7 +308,7 @@ class ArtView : AppCompatActivity() {
                             val decoded = android.util.Base64.decode(urlImagen, android.util.Base64.DEFAULT)
                             val bitmap = android.graphics.BitmapFactory.decodeByteArray(decoded, 0, decoded.size)
                             imageView.setImageBitmap(bitmap)
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             imageView.setImageResource(R.drawable.placeholder_articulo)
                         }
                     } else {
