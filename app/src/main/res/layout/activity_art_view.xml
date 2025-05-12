@@ -28,7 +28,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Detalle del artículo"
+        android:text="@string/detalleDelArticulo"
         android:textColor="@color/principal"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/back"
@@ -40,6 +40,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
+        android:contentDescription="@string/iconmisarts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/misarts" />

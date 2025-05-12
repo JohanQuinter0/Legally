@@ -26,7 +26,7 @@
         android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins_bold"
         android:freezesText="false"
-        android:text="Información de usuario"
+        android:text="@string/informacionDeUsuario"
         android:textColor="@color/principal"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/back"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userTitle">>
+        app:layout_constraintTop_toBottomOf="@id/userTitle">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imguser"
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:id="@+id/nombre"
             android:layout_height="wrap_content"
-            android:text="user123"
+            android:text="@string/user"
             android:textAlignment="center"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/principal"
@@ -72,7 +72,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="15dp"
-            android:paddingLeft="50dp">
+            android:paddingStart="50dp"
+            tools:ignore="RtlSymmetry">
 
             <ImageView
                 android:id="@+id/check"
@@ -80,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
+                android:contentDescription="@string/iconCheck"
                 app:srcCompat="@drawable/check_big" />
 
             <TextView
@@ -88,10 +90,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/almost_black"
-                android:text="Usuario verificado" />
+                android:text="@string/usuarioVerificado" />
         </LinearLayout>
 
         <LinearLayout
@@ -99,7 +101,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="15dp"
-            android:paddingLeft="50dp">
+            android:paddingStart="50dp"
+            tools:ignore="RtlSymmetry">
 
             <ImageView
                 android:id="@+id/heart"
@@ -107,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
+                android:contentDescription="@string/iconHeart"
                 app:srcCompat="@drawable/heart_02" />
 
             <TextView
@@ -115,10 +119,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/almost_black"
-                android:text="Legally desde hace 1 año" />
+                android:text="@string/LegallyDesde" />
         </LinearLayout>
 
         <LinearLayout
@@ -126,7 +130,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="15dp"
-            android:paddingLeft="50dp">
+            android:paddingStart="50dp"
+            tools:ignore="RtlSymmetry">
 
             <ImageView
                 android:id="@+id/star"
@@ -134,6 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
+                android:contentDescription="@string/iconStar"
                 app:srcCompat="@drawable/star1" />
 
             <TextView
@@ -142,11 +148,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/almost_black"
-                android:text="Ha ayudado a 2 personas a recuperar sus artículos" />
+                android:text="@string/haAyudado" />
         </LinearLayout>
 
         <LinearLayout
@@ -155,7 +161,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="15dp"
-            android:paddingLeft="50dp">
+            android:paddingStart="50dp"
+            tools:ignore="RtlSymmetry">
 
             <ImageView
                 android:id="@+id/warning"
@@ -163,6 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
+                android:contentDescription="@string/iconWarning"
                 app:srcCompat="@drawable/triangle_warning" />
 
             <TextView
@@ -171,8 +179,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:paddingLeft="10dp"
-                android:text="Reportar usuario"
+                android:paddingStart="10dp"
+                android:text="@string/reportarUsuario"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/red"/>
         </LinearLayout>

@@ -26,7 +26,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Mi cuenta"
+        android:text="@string/miCuenta"
         android:textColor="@color/principal"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/back"
@@ -38,6 +38,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
+        android:contentDescription="@string/iconuser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userimg" />
@@ -56,7 +57,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/micuentatitle">>
+        app:layout_constraintTop_toBottomOf="@+id/micuentatitle">
 
         <TextView
             android:id="@+id/misdatostxt"
@@ -65,7 +66,7 @@
             android:fontFamily="@font/poppins_bold"
             android:gravity="center|start"
             android:paddingHorizontal="50dp"
-            android:text="Mis datos"
+            android:text="@string/mis_datos"
             android:textSize="24sp" />
 
         <View
@@ -88,7 +89,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:gravity="center|center_horizontal"
-            android:text="Cambiar foto de perfil"
+            android:text="@string/cambiar_foto_de_perfil"
             android:textColor="@color/principal" />
 
         <TextView
@@ -98,7 +99,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:paddingHorizontal="30dp"
-            android:text="Cambiar nombre de usuario"
+            android:text="@string/cambiar_nombre_de_usuario"
             android:textColor="@color/almost_black"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -125,7 +126,7 @@
             android:elevation="10dp"
             android:fontFamily="@font/poppins"
             android:paddingHorizontal="30dp"
-            android:text="Cambiar correo electrónico"
+            android:text="@string/cambiar_correo_electronico"
             android:textColor="@color/almost_black"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -139,7 +140,7 @@
             android:background="@drawable/edittext_background"
             android:backgroundTint="@null"
             android:fontFamily="@font/poppins"
-            android:hint="Correo electrónico"
+            android:hint="@string/correo"
             android:paddingHorizontal="15dp"
             android:textAlignment="viewStart"
             android:textSize="14sp" />
@@ -151,7 +152,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:paddingHorizontal="30dp"
-            android:text="Cambiar número de teléfono"
+            android:text="@string/cambiar_numero_de_telefono"
             android:textColor="@color/almost_black"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -165,6 +166,7 @@
                 android:id="@+id/triangulo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/icontriangulo"
                 android:scaleType="centerInside"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
@@ -180,10 +182,11 @@
                 android:background="@drawable/edittext_background"
                 android:backgroundTint="@null"
                 android:fontFamily="@font/poppins"
-                android:hint="Número de teléfono"
+                android:hint="@string/telefono"
                 android:paddingHorizontal="15dp"
                 android:textAlignment="viewStart"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="RtlCompat" />
         </FrameLayout>
 
 
@@ -195,6 +198,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="100dp"
+        android:contentDescription="@string/iconsiguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/btn1" />

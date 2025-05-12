@@ -21,7 +21,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/verificar"
-        app:layout_constraintTop_toBottomOf="@+id/misarts">
+        app:layout_constraintTop_toBottomOf="@+id/misarts"
+        tools:ignore="UnusedAttribute">
 
         <Button
             android:id="@+id/btnmapa"
@@ -33,17 +34,19 @@
             android:paddingHorizontal="25dp"
             android:paddingVertical="25dp"
             android:paddingEnd="50dp"
-            android:text="Ver mapa."
+            android:text="@string/verMapa"
             android:textAlignment="gravity"
             android:textColor="@color/almost_black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:cornerRadius="32dp" />
+            app:cornerRadius="32dp"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/iconomapa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/iconMapa"
             android:scaleType="centerInside"
             android:scaleY="1.23"
             app:srcCompat="@drawable/mapa" />
@@ -73,18 +76,20 @@
             android:paddingHorizontal="25dp"
             android:paddingVertical="25dp"
             android:paddingEnd="49dp"
-            android:text="Verifica un artículo."
+            android:text="@string/verificaArt"
             android:textAlignment="gravity"
             android:textColor="@color/almost_black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:cornerRadius="32dp" />
+            app:cornerRadius="32dp"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/iconoverificar"
             android:layout_width="150dp"
             android:layout_height="135dp"
             android:layout_gravity="start|bottom"
+            android:contentDescription="@string/iconVerificar"
             app:srcCompat="@drawable/triangulo" />
     </FrameLayout>
 
@@ -111,18 +116,20 @@
             android:paddingHorizontal="25dp"
             android:paddingVertical="25dp"
             android:paddingEnd="40dp"
-            android:text="Mis artículos."
+            android:text="@string/misArts"
             android:textAlignment="gravity"
             android:textColor="@color/almost_black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:cornerRadius="32dp" />
+            app:cornerRadius="32dp"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/iconomisarts"
             android:layout_width="150dp"
             android:layout_height="163dp"
             android:layout_gravity="start|bottom"
+            android:contentDescription="@string/iconmisarts"
             app:srcCompat="@drawable/circulo" />
     </FrameLayout>
 
@@ -132,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="94dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Legally"
+        android:text="@string/Legally"
         android:textColor="@color/principal"
         android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,7 +154,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="25dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Qué quieres hacer hoy?"
+        android:text="@string/queQuieres"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,6 +166,7 @@
         android:layout_height="35dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:contentDescription="@string/btnnotificacion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/campana" />
@@ -169,6 +177,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
+        android:contentDescription="@string/btnUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userimg" />
@@ -196,18 +205,20 @@
             android:paddingHorizontal="25dp"
             android:paddingVertical="25dp"
             android:paddingEnd="40dp"
-            android:text="Registra tus artículos."
+            android:text="@string/registraArts"
             android:textAlignment="gravity"
             android:textColor="@color/almost_black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:cornerRadius="32dp" />
+            app:cornerRadius="32dp"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/iconoregistrar"
             android:layout_width="150dp"
             android:layout_height="163dp"
             android:layout_gravity="start|bottom"
+            android:contentDescription="@string/iconRegistrar"
             app:srcCompat="@drawable/estrella" />
     </FrameLayout>
 
@@ -216,7 +227,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="By Johan Sebastián Quintero"
+        android:text="@string/creador"
         android:textColor="@color/principal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

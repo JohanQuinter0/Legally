@@ -26,7 +26,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Mi cuenta"
+        android:text="@string/miCuenta"
         android:textColor="@color/principal"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/back"
@@ -38,6 +38,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
+        android:contentDescription="@string/iconuser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userimg" />
@@ -62,7 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/btnmisdatos"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <TextView
                 android:id="@+id/misdatostxt"
@@ -70,7 +72,7 @@
                 android:layout_height="60dp"
                 android:fontFamily="@font/poppins"
                 android:paddingVertical="16dp"
-                android:text="Mis datos"
+                android:text="@string/misDatos"
                 android:textAllCaps="false"
                 android:textColor="@color/almost_black"
                 android:textSize="20sp"
@@ -80,6 +82,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/iconMisDatos"
                 app:srcCompat="@drawable/detallesuser" />
         </LinearLayout>
 
@@ -100,7 +103,7 @@
                 android:layout_height="60dp"
                 android:fontFamily="@font/poppins"
                 android:paddingVertical="16dp"
-                android:text="Cambiar contraseña"
+                android:text="@string/cambiarContrasena"
                 android:textAllCaps="false"
                 android:textColor="@color/almost_black"
                 android:textSize="20sp"
@@ -108,9 +111,10 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:contentDescription="@string/iconCambiarContrasena"
                 app:srcCompat="@drawable/cambiarcontrasena" />
         </LinearLayout>
 
@@ -131,7 +135,7 @@
                 android:layout_height="60dp"
                 android:fontFamily="@font/poppins"
                 android:paddingVertical="16dp"
-                android:text="Necesitas ayuda?"
+                android:text="@string/necesitasAyuda"
                 android:textAllCaps="false"
                 android:textColor="@color/almost_black"
                 android:textSize="20sp"
@@ -139,9 +143,10 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:contentDescription="@string/iconayuda"
                 app:srcCompat="@drawable/ayuda" />
         </LinearLayout>
 
@@ -162,7 +167,7 @@
                 android:layout_height="60dp"
                 android:fontFamily="@font/poppins"
                 android:paddingVertical="16dp"
-                android:text="Cerrar sesión"
+                android:text="@string/cerrarSesion"
                 android:textAllCaps="false"
                 android:textColor="@color/principal"
                 android:textSize="20sp"
@@ -170,9 +175,10 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:contentDescription="@string/iconExit"
                 app:srcCompat="@drawable/cerrarsesion" />
         </LinearLayout>
 
@@ -184,6 +190,7 @@
         android:layout_height="320dp"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="70dp"
+        android:contentDescription="@string/iconStar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estrella" />
