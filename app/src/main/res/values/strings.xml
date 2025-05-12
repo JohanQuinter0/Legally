@@ -2,6 +2,7 @@
     <string name="app_name">Legally</string>
 
     <string name="botonregresar">Botón para regresar</string>
+    <string name="continuar">Continuar</string>
 
     <string-array name="tipo_documento">
         <item>Tipo de Documento</item>

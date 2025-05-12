@@ -30,7 +30,7 @@ class ArticuloAdapter(
 
     override fun onBindViewHolder(holder: ArticuloViewHolder, position: Int) {
         val articulo = lista[position]
-        holder.tvNombre.text = articulo.nombre_articulo
+        holder.tvNombre.text = "${articulo.marca_articulo} ${articulo.nombre_articulo}"
         holder.tvSerial.text = "S/N: ${articulo.serial}"
         holder.tvDetalles.text = "Detalles:\n${articulo.descripcion_articulo}"
 
