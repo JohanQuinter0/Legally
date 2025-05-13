@@ -27,12 +27,16 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
 import androidx.core.graphics.scale
+import com.google.android.material.textfield.TextInputEditText
 
 class MisDatos : AppCompatActivity() {
 
     private var imagenUri: Uri? = null
     private val db = Firebase.firestore
     private val scope = CoroutineScope(Dispatchers.Main + Job())
+    private lateinit var nombreInput: TextInputEditText
+    private lateinit var correoInput: TextInputEditText
+    private lateinit var telefonoInput: TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +55,15 @@ class MisDatos : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        nombreInput = findViewById(R.id.nuevonombreInput)
+        telefonoInput = findViewById(R.id.nuevotelefonoInput)
+
+        findViewById<ImageView>(R.id.siguiente).setOnClickListener {
+            actualizarDatos()
+        }
+
+        cargarDatosUsuario()
 
         findViewById<ImageView>(R.id.back).setOnClickListener { finish() }
 
@@ -173,6 +186,51 @@ class MisDatos : AppCompatActivity() {
             return null
         }
     }
+
+    private fun cargarDatosUsuario() {
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+        val correoUsuario = prefs.getString("correo_usuario", "") ?: return
+
+        db.collection("usuarios").document(correoUsuario).get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    nombreInput.hint = document.getString("nombre") ?: "Nombre de usuario"
+                    telefonoInput.hint = document.getString("telefono") ?: "Teléfono"
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al cargar datos", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun actualizarDatos() {
+        val prefs = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+        val correoUsuario = prefs.getString("correo_usuario", "") ?: return
+
+        val nuevosDatos = mutableMapOf<String, Any>()
+
+        val nuevoNombre = nombreInput.text.toString().trim()
+        val nuevoTelefono = telefonoInput.text.toString().trim()
+
+        if (nuevoNombre.isNotEmpty()) nuevosDatos["nombre"] = nuevoNombre
+        if (nuevoTelefono.isNotEmpty()) nuevosDatos["telefono"] = nuevoTelefono
+
+        if (nuevosDatos.isEmpty()) {
+            Toast.makeText(this, "No hay datos para actualizar", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        db.collection("usuarios").document(correoUsuario)
+            .update(nuevosDatos)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show()
+                cargarDatosUsuario()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show()
+            }
+    }
+
 
     class GlideApp private constructor() {
         companion object {

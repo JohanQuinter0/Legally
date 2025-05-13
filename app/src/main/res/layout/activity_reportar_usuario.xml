@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportarUsuario"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/botonregresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <TextView
+        android:id="@+id/reportarUserTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins_bold"
+        android:freezesText="false"
+        android:text="@string/reportar_usuario"
+        android:textColor="@color/principal"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <TextView
+        android:id="@+id/cuentanos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/cuentanos_que_sucede"
+        android:textColor="@color/almost_black"
+        app:layout_constraintTop_toBottomOf="@id/reportarUserTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/dinos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:paddingHorizontal="50dp"
+        android:textAlignment="center"
+        android:text="@string/porque_reporte"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintTop_toBottomOf="@id/cuentanos"
+        app:layout_constraintStart_toStartOf="@id/cuentanos"
+        app:layout_constraintEnd_toEndOf="@id/cuentanos"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/dejoresponder"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/dejo_de_responder"
+        android:textColor="@color/almost_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/dinos"
+        app:layout_constraintStart_toStartOf="@id/dinos"
+        app:layout_constraintTop_toBottomOf="@id/dinos"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/estafa"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/estafa"
+        android:textColor="@color/almost_black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/dejoresponder"
+        app:layout_constraintStart_toStartOf="@id/dejoresponder"
+        app:layout_constraintTop_toBottomOf="@id/dejoresponder" />
+
+    <TextView
+        android:id="@+id/bullying"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/bullying"
+        android:textColor="@color/almost_black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/estafa"
+        app:layout_constraintStart_toStartOf="@id/estafa"
+        app:layout_constraintTop_toBottomOf="@id/estafa" />
+
+    <TextView
+        android:id="@+id/falsoreporte"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/falso_reporte"
+        android:textColor="@color/almost_black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/bullying"
+        app:layout_constraintStart_toStartOf="@id/bullying"
+        app:layout_constraintTop_toBottomOf="@id/bullying" />
+
+    <Button
+        android:id="@+id/btnEnviarReporte"
+        android:paddingVertical="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/principal"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/enviar"
+        android:textSize="16sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

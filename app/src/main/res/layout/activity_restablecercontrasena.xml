@@ -8,28 +8,41 @@
     android:id="@+id/RestablecerContrasena"
     tools:context=".RestablecerContrasena">
 
-    <Button
-        android:id="@+id/btnRestablecer"
-        android:layout_width="0dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/principal"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Continuar"
-        android:textSize="16sp"
-        app:cornerRadius="8dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingVertical="20dp"
+        android:isScrollContainer="true"
+        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/errorMessage1">
+
+        <Button
+            android:id="@+id/btnRestablecer"
+            android:paddingVertical="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:backgroundTint="@color/principal"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Continuar"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </ScrollView>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/restablecerCorreoInput"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="220dp"
         android:layout_marginEnd="25dp"
         android:background="@drawable/edittext_background"
         android:backgroundTint="@null"
@@ -40,20 +53,20 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/correo2" />
 
     <TextView
         android:id="@+id/correo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins"
         android:text="Correo electrónico"
         android:textColor="@color/principal"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/restablecerCorreoInput"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/IngreseCorreoTxt" />
 
     <ImageView
         android:id="@+id/back"

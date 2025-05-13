@@ -1,8 +1,10 @@
 package com.example.legally
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +35,13 @@ class InformacionUsuario : AppCompatActivity() {
 
         imageView = findViewById(R.id.imguser)
         val correoDestino = intent.getStringExtra("correoDestino") ?: return
+
+        val btnReportarUser: LinearLayout = findViewById(R.id.btnReportarUser)
+        btnReportarUser.setOnClickListener {
+            val intent = Intent(this, ReportarUsuario::class.java)
+            intent.putExtra("correo_reportado", correoDestino)
+            startActivity(intent)
+        }
 
         cargarImagenPerfil(correoDestino)
 

@@ -43,164 +43,150 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userimg" />
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/rounded_button_background"
-        android:orientation="vertical"
-        android:paddingHorizontal="0dp"
-        android:paddingTop="25dp"
+        android:paddingVertical="20dp"
+        android:isScrollContainer="true"
+        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/micuentatitle">
 
-        <TextView
-            android:id="@+id/misdatostxt"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/poppins_bold"
-            android:gravity="center|start"
-            android:paddingHorizontal="50dp"
-            android:text="@string/mis_datos"
-            android:textSize="24sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="40dp"
-            android:background="@color/almost_black" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userperfilimg"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:paddingVertical="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/userperfilimg" />
-
-        <TextView
-            android:id="@+id/btncambiarperfilimg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:gravity="center|center_horizontal"
-            android:text="@string/cambiar_foto_de_perfil"
-            android:textColor="@color/principal" />
-
-        <TextView
-            android:id="@+id/nuevonombreusuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:paddingHorizontal="30dp"
-            android:text="@string/cambiar_nombre_de_usuario"
-            android:textColor="@color/almost_black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nuevonombreInput"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@drawable/edittext_background"
-            android:backgroundTint="@null"
-            android:fontFamily="@font/poppins"
-            android:hint="Nombre de usuario"
-            android:paddingHorizontal="15dp"
-            android:textAlignment="viewStart"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/nuevocorreousuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:elevation="10dp"
-            android:fontFamily="@font/poppins"
-            android:paddingHorizontal="30dp"
-            android:text="@string/cambiar_correo_electronico"
-            android:textColor="@color/almost_black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nuevocorreoInput"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@drawable/edittext_background"
-            android:backgroundTint="@null"
-            android:fontFamily="@font/poppins"
-            android:hint="@string/correo"
-            android:paddingHorizontal="15dp"
-            android:textAlignment="viewStart"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/nuevotelefonousuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:paddingHorizontal="30dp"
-            android:text="@string/cambiar_numero_de_telefono"
-            android:textColor="@color/almost_black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="0dp">
+            android:minHeight="500dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/rounded_button_background"
+            android:orientation="vertical"
+            android:paddingHorizontal="0dp"
+            android:paddingTop="15dp">
 
-            <ImageView
-                android:id="@+id/triangulo"
+            <TextView
+                android:id="@+id/misdatostxt"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/icontriangulo"
-                android:scaleType="centerInside"
-                android:scaleX="1.2"
-                android:scaleY="1.2"
-                app:srcCompat="@drawable/triangulo" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center|start"
+                android:paddingHorizontal="50dp"
+                android:text="@string/mis_datos"
+                android:textSize="24sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="40dp"
+                android:background="@color/almost_black" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userperfilimg"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:paddingVertical="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/userperfilimg" />
+
+            <TextView
+                android:id="@+id/btncambiarperfilimg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:gravity="center|center_horizontal"
+                android:text="@string/cambiar_foto_de_perfil"
+                android:textColor="@color/principal" />
+
+            <TextView
+                android:id="@+id/nuevonombreusuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:paddingHorizontal="30dp"
+                android:text="@string/cambiar_nombre_de_usuario"
+                android:textColor="@color/almost_black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nuevotelefonoInput"
+                android:id="@+id/nuevonombreInput"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_gravity="center|top"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/edittext_background"
                 android:backgroundTint="@null"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/telefono"
+                android:hint="Nombre de usuario"
                 android:paddingHorizontal="15dp"
                 android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/nuevotelefonousuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:paddingHorizontal="30dp"
+                android:text="@string/cambiar_numero_de_telefono"
+                android:textColor="@color/almost_black"
                 android:textSize="14sp"
-                tools:ignore="RtlCompat" />
-        </FrameLayout>
+                android:textStyle="bold" />
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp">
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/triangulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="@string/icontriangulo"
+                    android:scaleType="centerInside"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    app:srcCompat="@drawable/triangulo" />
 
-    <ImageView
-        android:id="@+id/siguiente"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="100dp"
-        android:contentDescription="@string/iconsiguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/btn1" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nuevotelefonoInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center|top"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edittext_background"
+                    android:backgroundTint="@null"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/telefono"
+                    android:paddingHorizontal="15dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    tools:ignore="RtlCompat" />
+
+                <ImageView
+                    android:id="@+id/siguiente"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="25dp"
+                    android:layout_gravity="right|bottom"
+                    android:contentDescription="@string/iconsiguiente"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/btn1" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

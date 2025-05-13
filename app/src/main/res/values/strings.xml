@@ -85,6 +85,15 @@
     <string name="iconflor">iconFlor</string>
     <string name="aqui_encontraras_tus_notificaciones">Aquí encontrarás tus notificaciones.</string>
     <string name="buscar_articulo">Buscar artículo</string>
+    <string name="mis_articulos">Mis artículos</string>
+    <string name="reportar_usuario">Reportar usuario</string>
+    <string name="cuentanos_que_sucede">Cuéntanos qué sucede</string>
+    <string name="porque_reporte">Dinos por qué crees que se debería reportar a este usuario.</string>
+    <string name="falso_reporte">Falso reporte</string>
+    <string name="bullying">Bullying y acoso</string>
+    <string name="estafa">Estafa</string>
+    <string name="dejo_de_responder">Dejó de responder</string>
+    <string name="enviar">Enviar</string>
 
     <string-array name="tipo_documento">
         <item>Tipo de Documento</item>
