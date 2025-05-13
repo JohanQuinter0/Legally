@@ -101,21 +101,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/serial" />
 
-    <Button
-        android:id="@+id/btnBuscarArt"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
-        android:backgroundTint="@color/principal"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Buscar artículo"
-        android:textSize="16sp"
-        app:cornerRadius="8dp"
+        android:layout_height="0dp"
+        android:paddingVertical="20dp"
+        android:isScrollContainer="true"
+        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serialInput">
+
+        <Button
+            android:id="@+id/btnBuscarArt"
+            android:paddingVertical="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:backgroundTint="@color/principal"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/buscar_articulo"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

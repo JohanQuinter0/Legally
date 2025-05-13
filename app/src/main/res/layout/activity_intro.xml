@@ -32,11 +32,11 @@
 
     <LinearLayout
         android:id="@+id/dotsContainer"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_gravity="center"
-        android:layout_marginStart="170dp"
-        android:layout_marginEnd="170dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
         android:orientation="horizontal"
         android:background="@drawable/rounded_background"
         app:layout_constraintBottom_toTopOf="@+id/btnContinuar"

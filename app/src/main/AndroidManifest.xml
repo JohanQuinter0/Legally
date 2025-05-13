@@ -21,6 +21,7 @@
             android:exported="false" />
         <activity
             android:name=".Chat"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".EscogerArticuloMapa"
@@ -36,6 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".VerificarArticulo"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".MisArticulos"
@@ -51,6 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".InicioSesion"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".VerificacionRegistro"

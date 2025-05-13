@@ -29,6 +29,23 @@ class VerificarArticulo : AppCompatActivity() {
         inicializarVistas()
         configurarSpinner()
         configurarEventos()
+
+        val rootView = findViewById<View>(R.id.verificar_articulo)
+        val textView = findViewById<TextView>(R.id.textView)
+
+        rootView.viewTreeObserver.addOnGlobalLayoutListener {
+            val r = android.graphics.Rect()
+            rootView.getWindowVisibleDisplayFrame(r)
+            val screenHeight = rootView.rootView.height
+            val keypadHeight = screenHeight - r.bottom
+
+            if (keypadHeight > screenHeight * 0.15) {
+                textView.visibility = View.GONE
+            } else {
+                textView.visibility = View.VISIBLE
+            }
+        }
+
     }
 
     private fun inicializarVistas() {

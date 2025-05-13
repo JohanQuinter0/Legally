@@ -84,6 +84,7 @@
     <string name="notificaciones">Notificaciones</string>
     <string name="iconflor">iconFlor</string>
     <string name="aqui_encontraras_tus_notificaciones">Aquí encontrarás tus notificaciones.</string>
+    <string name="buscar_articulo">Buscar artículo</string>
 
     <string-array name="tipo_documento">
         <item>Tipo de Documento</item>

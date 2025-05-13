@@ -94,6 +94,10 @@ class Intro : AppCompatActivity() {
         val pagerAdapter = viewPager.adapter ?: return
         dots = arrayOfNulls(pagerAdapter.itemCount)
 
+        val screenWidth = resources.displayMetrics.widthPixels
+        val horizontalMargin = (screenWidth * 0.01).toInt()
+        val topMargin = (screenWidth * 0.015).toInt()
+
         for (i in dots.indices) {
             dots[i] = ImageView(this).apply {
                 setImageResource(R.drawable.dot_indicator)
@@ -101,7 +105,7 @@ class Intro : AppCompatActivity() {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 ).apply {
-                    setMargins(14, 16, 8, 0)
+                    setMargins(horizontalMargin, topMargin, horizontalMargin, topMargin)
                 }
                 dotsContainer.addView(this)
             }

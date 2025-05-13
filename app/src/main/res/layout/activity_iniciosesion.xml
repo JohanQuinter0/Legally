@@ -9,19 +9,6 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/contraseñaTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="353dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/contrasena"
-        android:textColor="@color/principal"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/ContraseñaInput"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/LegallyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,130 +20,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/UsuarioTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="251dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/usuario"
-        android:textColor="@color/principal"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/UsuarioInput"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/UsuarioInput"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="275dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/edittext_background"
-        android:backgroundTint="@null"
-        android:fontFamily="@font/poppins"
-        android:hint="@string/correoEjemplo"
-        android:paddingHorizontal="10dp"
-        android:textAlignment="viewStart"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/ContraseñaInput"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="377dp"
-        android:layout_marginEnd="25dp"
-        android:autofillHints=""
-        android:background="@drawable/edittext_background"
-        android:ems="10"
-        android:fontFamily="@font/poppins"
-        android:hint="@string/contrasena"
-        android:inputType="textPassword"
-        android:paddingHorizontal="10dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Olvidastecontraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="446dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/olvidasteContrasena"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@color/almost_black"
-        app:layout_constraintEnd_toEndOf="@+id/ContraseñaInput"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/OtrasOpciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/otrosLogin"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@color/almost_black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtnIniciarSesion" />
-
-    <Button
-        android:id="@+id/BtnIniciarSesion"
-        android:layout_width="0dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="505dp"
-        android:layout_marginEnd="25dp"
-        android:backgroundTint="@color/principal"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/login"
-        android:textSize="16sp"
-        app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/BotonesInicioSesionAlterno"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OtrasOpciones">
-
-        <ImageView
-            android:id="@+id/BtnGoogle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:contentDescription="@string/btnGoogle"
-            android:paddingHorizontal="5dp"
-            app:srcCompat="@drawable/google" />
-
-        <ImageView
-            android:id="@+id/BtnFacebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:contentDescription="@string/btnFacebook"
-            android:paddingHorizontal="5dp"
-            app:srcCompat="@drawable/facebook" />
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/back"
@@ -222,24 +85,152 @@
             app:cornerRadius="8dp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/errorMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="25dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/reintentalo"
-        android:textAlignment="viewStart"
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <ScrollView
+        android:id="@+id/loginScrollable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toBottomOf="@+id/TabInicioRegistro"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ContraseñaInput" />
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
+
+            <TextView
+                android:id="@+id/UsuarioTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/usuario"
+                android:textColor="@color/principal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/UsuarioInput"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="25dp"
+                android:background="@drawable/edittext_background"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/correoEjemplo"
+                android:paddingHorizontal="10dp"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/contraseñaTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/contrasena"
+                android:textColor="@color/principal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ContraseñaInput"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="25dp"
+                android:background="@drawable/edittext_background"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/contrasena"
+                android:inputType="textPassword"
+                android:paddingHorizontal="10dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/Olvidastecontraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:layout_gravity="end"
+                android:fontFamily="@font/poppins"
+                android:text="@string/olvidasteContrasena"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/almost_black" />
+
+            <TextView
+                android:id="@+id/errorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="25dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/reintentalo"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BtnIniciarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="25dp"
+                android:backgroundTint="@color/principal"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/login"
+                android:textSize="16sp"
+                app:cornerRadius="8dp" />
+
+            <TextView
+                android:id="@+id/OtrasOpciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/otrosLogin"
+                android:textColor="@color/almost_black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/BotonesInicioSesionAlterno"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/BtnGoogle"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:contentDescription="@string/btnGoogle"
+                    android:paddingHorizontal="5dp"
+                    app:srcCompat="@drawable/google" />
+
+                <ImageView
+                    android:id="@+id/BtnFacebook"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rounded_button"
+                    android:contentDescription="@string/btnFacebook"
+                    android:paddingHorizontal="5dp"
+                    app:srcCompat="@drawable/facebook" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <include
         android:id="@+id/inicioSesionExitosoOverlay"
         layout="@layout/inicio_sesion_exitoso"

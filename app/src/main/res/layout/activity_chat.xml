@@ -63,6 +63,8 @@
         android:background="@color/white"
         android:orientation="horizontal"
         android:paddingHorizontal="15dp"
+        android:isScrollContainer="true"
+        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
