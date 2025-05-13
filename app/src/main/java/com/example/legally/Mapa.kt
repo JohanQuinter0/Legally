@@ -22,6 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.Firebase
@@ -106,7 +107,14 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             googleMap.setOnMapClickListener { latLng ->
                 selectedLatLng = latLng
                 googleMap.clear()
-                googleMap.addMarker(MarkerOptions().position(latLng).title("Nueva ubicación"))
+                val markerIcon = BitmapDescriptorFactory.fromResource(R.drawable.mappin)
+
+                googleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng)
+                        .title("Nueva ubicación")
+                        .icon(markerIcon)
+                )
                 mostrarOverlayConfirmacion()
             }
         }
@@ -216,10 +224,13 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                         val lng = it["longitud"] as? Double ?: return@let
                         val nombre = document.getString("nombre_articulo") ?: "Artículo perdido"
 
+                        val markerIcon = BitmapDescriptorFactory.fromResource(R.drawable.mappin)
+
                         googleMap.addMarker(
                             MarkerOptions()
                                 .position(LatLng(lat, lng))
                                 .title(nombre)
+                                .icon(markerIcon)
                         )
                     }
                 }
