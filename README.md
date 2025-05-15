@@ -79,5 +79,6 @@ Legally surge como una solución ante el alto índice de robos y pérdida de art
 
 ## ✍️ Autor
 
-**Johan Sebastián Quintero** – Desarrollador y diseñador de la aplicación
+**Johan Sebastián Quintero** – Desarrollador y diseñador de la aplicación.
+
 **Proyecto para la asignatura de Desarrollo de Aplicaciones Móviles - Ingeniería de Sistemas**
